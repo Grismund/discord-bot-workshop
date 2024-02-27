@@ -2,7 +2,7 @@
   "name": "discord-bot-workshop",
   "version": "1.0.0",
   "description": "",
-  "main": "tutorial-bot.js",
+  "main": "./tutorial/tutorial-bot.js",
   "scripts": {
     "test": "jest"
   },
