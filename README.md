@@ -1,8 +1,11 @@
 # Discord GPT Chatbot
 ## What is a Discord Bot Powered by OpenAI API?
+![alt text](/img/stockgpt.png)
+
+![alt text](/img/botgpt.png)
 ### Discord
 Discord is an ad-free, developer-friendly platform for video calls, voice chat, and text chat.
-Discord allows users to create "servers" which are collections of persistent chat rooms. 
+Discord allows users to create "servers" which are collect ions of persistent chat rooms. 
 Discord is dev-friendly. Their docs are robust and they empower devs with an incredible amount of control over the app.
 
 ### Bot
