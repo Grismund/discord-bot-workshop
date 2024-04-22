@@ -146,7 +146,7 @@ You're going to:
 
 ### ⭐ BONUS TASKS
 
-These are some ideas for you to improve your bot. All of them are implemented in `/parse_bot/parse-bot.js`. Run the full version with `node /parse_bot/parse-bot.js`
+These are some ideas for you to improve your bot. All of them are implemented in `/parse_bot/parse-bot.js`. Run the full version with `node ./parse_bot/parse-bot.js`
 - Customize your assistant
 - Use Discord's `message.channel.sendTyping()` to indicate in chat that GPT is working on a repsonse
 - Read chat history and send it along to OpenAI so conversations have more context
