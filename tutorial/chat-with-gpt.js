@@ -3,11 +3,11 @@ const axios = require('axios');
 async function chatWithGpt(chatInput) {
     const url = 'https://api.openai.com/v1/chat/completions';
     const data = {
-        'model': 'gpt-4-1106-preview',
+        'model': 'gpt-4o-2024-11-20',
         'messages': [
             // Give your assistant a personality in the content field "You are a..."
             {role: 'system', content: 'You are a...'},
-            // Provide the chatInput as content that the "user" (not GPT) gives to GPT
+            // Provide the chatInput as content that the human user gives to GPT
             {role: 'user', content: ''}
         ],
         'temperature': 0.7,
@@ -23,7 +23,7 @@ async function chatWithGpt(chatInput) {
         // Hint: you'll need drill further down into 'gptResponse.data.choices'.
         console.log(gptResponse);
 
-        // return that string from this function
+        // return that string response from this function
         return 
     } catch(error) {
         console.log(error)
