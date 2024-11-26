@@ -2,9 +2,9 @@
 
 ## What is a Discord Bot Powered by AI?
 
-A Discord Bot powered by AI means that we can write code that acts like a user in a Discord chatroom, but has the brains of an AI to carry on a conversation with us!
+A Discord Bot powered by AI means that we can write code that acts like a user in a Discord chatroom, but has the brains of an AI to carry out a conversation with us!
 
-In this guide, we are going to learn about and build a way to chat with some of the most advanced AI models in the world through Discord's chat interface!
+In this guide, we will learn about and build a way to chat with some of the most advanced AI models in the world through Discord's chat interface!
 
 ## What You Need
 
@@ -21,8 +21,8 @@ In this guide, we are going to learn about and build a way to chat with some of 
 Above is the way the familiar and free [ChatGPT 3.5 chat tool](https://chat.openai.com/) works.
 - We type into the interface as user account.
 - ChatGPT has a "user account" that reads what we type.
-- The ChatGPT "user account" sends the conversation to the GPT3.5 brain (Large Language Model...the true AI) which is accessed through OpenAI's API.
-- The GPT3.5 brain, or AI then looks at the context of the conversation and magically (yeah, basically that) predicts what the most likely response is.
+- The ChatGPT "user account" sends the conversation to the GPT-4o brain (Large Language Model...the true AI) which is accessed through OpenAI's API.
+- The GPT-4o brain, or AI then looks at the context of the conversation and magically (yeah, basically that) predicts what the most likely response is.
 - That response is sent back to the ChatGPT "user account"
 - The ChatGPT "user account" then types into the chat session what the AI brain told it to type.
 
@@ -40,13 +40,13 @@ Above is what we will program!
 
 ### 💬 Discord 
 
-Discord is an ad-free, developer-friendly platform for video calls, voice chat, and text chat. It allows users to create "servers" which are collect ions of persistent chat rooms. 
+Discord is an ad-free, developer-friendly platform for video calls, voice chat, and text chat. It allows users to create "servers" which are collections of persistent chat rooms. 
 
-Discord is also dev-friendly. Their docs are robust and they empower devs with an incredible amount of control over the app.
+Discord is also dev-friendly. Their docs are robust, and they empower devs with incredible controls over the app.
 
 ### 🤖 Bot
 
-Discord allows developers to create "bots" which are essentially Discord users run by code. These "bot users" can be programmed to interact with real users (such as yourself) in chatrooms among other things. They can be programmed to do all kinds of things including reading user messages and replaying with responses from OpenAI API.
+Discord allows developers to create "bots" which are essentially Discord users run by code. These "bot users" can be programmed to interact with real users (such as yourself) in chat rooms among other things. They can be programmed to do all kinds of things including reading user messages and replaying with responses from OpenAI API.
 
 ### 🧠 OpenAI API 
 
@@ -55,15 +55,15 @@ For this tutorial, you need access to OpenAI API Keys. These keys allow you to a
 ## Why Build This?
 
 Chat GPT basic (free) has some limitations:
-- ChatGPT interface only allows access to GPT 3.5.
+- ChatGPT interface only allows access to GPT-4o-mini.
 - Code-Playground interface is not optimal for several reasons.
   - Conversations are not persistent. You will lose them over time.
   - Only a single conversation is available.
   - Eventually, the conversation gets so long, that response time is unreasonable.
 - You have limited control over your ChatGPT Assistant and the chat environment.
 
-A Discord Chatbot + OpenAI API Keys solves these problems!
-- Discord can interface with all versions of GPT that your API Keys provide.
+A Discord Chatbot solves these problems!
+- Discord can interface with all versions of GPT (any ANY AI model) that your API Keys provide.
 - A Discord Channel has some great advantages.
   - Multiple conversations with multiple versions of your bot are possible.
   - Extensive message history without the bog-down.
@@ -76,7 +76,15 @@ The three main reasons I wanted to figure this out:
 
 ## 🚧 Tutorial: Let's Build!
 
-### Create a Discord Account and Bot-User
+### 🧠 Set Up an Open-AI API Account
+
+1. Sign up for an account https://platform.openai.com/docs/overview
+2. Create a new API Key <br>
+![set up api keys](/img/api-keys.png)
+3. Save your key <br>
+![save your key](/img/save-keys.png)
+
+### 🤖 Create a Discord Account and Bot-User
 
 1. [Create a Discord Account](https://discord.com/register) or [Log in](https://discord.com/login) to your existing account.
 2. Visit the [Discord Developer Portal](https://discord.com/developers/applications) to set up your first application.
@@ -87,6 +95,7 @@ The three main reasons I wanted to figure this out:
 7. Set Privileged Gateway Intents all to ON which gives your bot-user the ability to interact on your server. `Save Changes`. By the way, the checkboxes at the bottom of the page are just for calculating something which we won't need. Don't bother with those.
 
 ### ✉️ Invite the Bot-User to Your Server
+
 1. Go to `OAuth2` on the left
 2. We are going to generate a link which invites the bot to our server. Under `SCOPES` select `bot` and `applications.commands`
 3. Scroll down to select the permissions we want to grant this bot. Under `BOT PERMISSIONS` select `Send Messages` and `Read Message History`.<br>
@@ -103,9 +112,9 @@ The three main reasons I wanted to figure this out:
 
 ### Set Up Your Project
 
-1. Double check that node and npm are installed with `node -v` and `npm -v`. If it's not, and you're on mac, install node. `brew install node` may be appropriate, but if you aren't sure, reach out for help.
+1. Double check that node and npm are installed with `node -v` and `npm -v`. If it's not, and you're on mac, install node. `brew install node` may be appropriate.
 2. Install the packages for this project: `npm install`. This is what you get:
-    ```json
+    ```bash
     // Helps us make HTTP requests
     "axios": "^1.6.3", 
 
@@ -128,19 +137,18 @@ The three main reasons I wanted to figure this out:
 
 ### 👨‍💻 Work on Your Bot
 
-- You have some boilerplate code in the `tutorial-bot.js` file.
+- You have some boilerplate code in the `tutorial/tutorial-bot.js` file.
 - Run it in node: `node .`
 - Check that your Bot is now online. 
 
   ![bot online](/img/bot-online.png)
 
-- Say someting to your bot! If something goes wrong, have `Ctrl + C` ready to quit your Node session. 😉 
+- Say something to your bot! If something goes wrong, have `Ctrl + C` ready to quit your Node session. 😉 
   - As you can see, Discord.js allows you to easily read what is going on in the chat conversation when we pass `message` into the `messageCreate` event listener. We can see the `message.author` or read the `.message.content` and we can `message.reply` with a string.
-
 The rest of the tutorial is in the code. 
 
 You're going to:
-- [ ] Keep your bot from replying to it's own Discord message creations.
+- [ ] Keep your bot from replying to its own Discord message creations.
 - [ ] Work through a function which takes your Discord input, creates a POST request to OpenAI with it, and returns OpenAI's response.
 - [ ] Send OpenAI's response back to the Discord chat window.
 
@@ -148,11 +156,23 @@ You're going to:
 
 These are some ideas for you to improve your bot. All of them are implemented in `/parse_bot/parse-bot.js`. Run the full version with `node ./parse_bot/parse-bot.js`
 - Customize your assistant
-- Use Discord's `message.channel.sendTyping()` to indicate in chat that GPT is working on a repsonse
+- Use Discord's `message.channel.sendTyping()` to indicate in chat that GPT is working on a response
 - Read chat history and send it along to OpenAI so conversations have more context
 - Work around Discord's 2,000 character limit
 - Parse code blocks into their own response
 - Deploy somewhere!
+
+### Parse Bot
+
+I've included a more advanced bot for you to tinker with in the `parse_bot` directory. It includes:
+
+- Break up responses from GPT
+  - Long responses are broken up into smaller messages so you don't violate the 2,000 character limit.
+  - Code blocks are parsed into their own smaller messages.
+- Reading previous messages, allowing more back and forth conversations.
+- A `quiet` command so you can type in chat without a request being sent.
+- Loading status
+- Basic error handling
 
 ### Deploying on Android 7.0+
 

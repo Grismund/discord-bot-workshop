@@ -14,6 +14,9 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
+    // Did you notice how when you created a message, the code below ran?
+    // And then when the bot created a message, it ran this same code again?
+    // That's not good! Right now, our bot replies to ALL messages created in the chat...even its own! 🤮
     // We need to ignore when `messageCreate` is triggered by the bot...otherwise we create an infinite chat loop.
     // Uncomment the line below.
     // if (message.author.bot) return;

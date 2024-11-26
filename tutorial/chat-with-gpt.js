@@ -3,7 +3,7 @@ const axios = require('axios');
 async function chatWithGpt(chatInput) {
     const url = 'https://api.openai.com/v1/chat/completions';
     const data = {
-        'model': 'gpt-4-1106-preview',
+        'model': 'gpt-4o-2024-11-20',
         'messages': [
             // Give your assistant a personality in the content field "You are a..."
             {role: 'system', content: 'You are a...'},
